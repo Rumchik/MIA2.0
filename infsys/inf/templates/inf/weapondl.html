@@ -1,0 +1,9 @@
+     <h1><font color="00FF00">{{ weapon.name }}</font></h1>
+     <!--<p><img class="card-img-top" src="{{ weapon.image.url }}" alt="" , style='width: 60%; height: 60%;'></p>-->
+     <img id="im1" src="{% static 'weapon.image.url' %}" />
+     <h1><font color="00FF00">{{ weapon.caliber }}</font></h1>
+     <h1><font color="00FF00">{{ weapon.description }}</font></h1>
+     {% for ammo in weapon.ammos.all %}
+          <a href="{{ ammo.get_absolute_url }}" <font color="00FF00">{{ ammo.name }}</font></a>
+     {% endfor %}
+

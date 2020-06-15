@@ -1,0 +1,62 @@
+{% extends 'inf/mainls.html' %}
+    
+{% block search %}
+<h1>Поиск</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-1-3" action="{% url 'weapon_list_url' %}">
+            <!--К каждой поисковой строке написать функцию-->
+            <p>Название</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="search_name" />
+        </form>
+        <form class="col-1-3">
+            <p>Длина</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="search" />
+        </form>
+        <form class="col-1-3">
+            <p>Масса</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="search" />
+        </form>
+    </div>
+    <div class="row">
+        <form class="col-1-3" action="{% url 'weapon_list_url' %}">
+            <p>Калибр</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="search_caliber" />
+        </form>
+        <form class="col-1-3">
+            <p>Емкость магазина</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                name="search" />
+        </form>
+        <form class="col-1-3">
+            <p>Количество нарезов</p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Searc"
+                name="Имя" />
+        </form>
+    </div>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+    <!--кнопка-->
+{% endblock %}
+{% block list %}
+    <form class="form-inline my-2 my-lg-0" action="{% url 'weapon_list_url' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_name">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_caliber">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_description">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    {% for weapon in page_object.object_list %}
+        <a href="{{ weapon.get_absolute_url }}"><img class="card-img-top" src="{{ weapon.weapons_photo.url }}" alt="" , style='width: 100%; height: 100%;'></a>
+        <h1><font color="00FF00">{{ weapon.name }}</font></h1>
+        <h1><font color="00FF00">{{ weapon.caliber }}</font></h1>
+        <h1><font color="00FF00">{{ weapon.description }}</font></h1>
+        <a href="{{ weapon.get_absolute_url }}" class="btn btn-light">Open</a>
+    {% endfor %}
+{% endblock %}

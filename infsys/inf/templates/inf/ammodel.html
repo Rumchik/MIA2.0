@@ -1,0 +1,11 @@
+{% extends 'inf/mainls.html' %}
+
+{% block list %}
+    <form action="{% url 'ammo_del_url' slug=ammo.slug %}" method="post">
+        {% csrf_token %}
+
+        <h3>Вы уверены, что хотите удалить этот объект? <b>"{{ ammo.name|title }}"</b></h3>
+        <a href="{% url 'ammo_detail_url' slug=ammo.slug %}">Закрыть</a>
+        <button type="submit" name="button" class="btn btn-danger">Удалить</button>
+    </form>
+{% endblock %}

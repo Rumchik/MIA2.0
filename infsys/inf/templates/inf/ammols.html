@@ -1,0 +1,9 @@
+{% extends 'inf/mainls.html' %}
+
+{% block list %}
+    {% for ammo in ammos %}
+        <a href="{{ ammo.get_absolute_url }}"><img class="card-img-top" src="{{ ammo.image.url }}" alt="" , style='width: 100%; height: 100%;'></a>
+        <h1><font color="00FF00">{{ ammo.name }}</font></h1>
+        <a href="{{ ammo.get_absolute_url }}" class="btn btn-light">Open</a>
+    {% endfor %}
+{% endblock %}

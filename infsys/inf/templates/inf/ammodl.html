@@ -1,0 +1,11 @@
+{% load static %}
+
+<h1><font color="00FF00">{{ ammo.name }}</font></h1>
+<p><img src="{{ ammo.image.url }}" alt="" , style='width: 60%; height: 60%;'>{{ ammo.image.url }}</p>  
+{% if ammo.markings_image1 %}
+    <p><img  src="{{ ammo.markings_image1.url }}" alt="" , style='width: 60%; height: 60%;'></p>
+{% endif %}
+<h1><font color="00FF00">{{ ammo.caliber }}</font></h1>
+{% for weapon in ammo.weapons.all %}    
+    <h1><font color="00FF00">{{ weapon.name }}</font></h1>
+{% endfor %}
